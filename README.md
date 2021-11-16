@@ -22,3 +22,7 @@ El programa se va a ejecutar en este archivo, aquí llamamos a los objetos para 
 * Damo click en la opción Code y luego pulsamos el botón "Download ZIP". Recuerden descomprimir los archivos en la carpeta o directorio donde usted trabaja.
 
 2.-Compilar y ejecutar en el entorno que sea de su gusto.
+
+## Expresiones de Gratitud 🎁
+* Invite un café ☕ a alguien del equipo en muestra de agradecimiento :clown_face:. 
+* Da las gracias públicamente 🤓.
