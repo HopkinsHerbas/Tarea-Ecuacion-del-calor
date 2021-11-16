@@ -8,3 +8,7 @@ JacobiMethod() #Método de Jacobi para matrices
 Mat_Vec_Mult() #Producto matriz-vector
 ```
 ## tools.h 📌
+## heatExp.c
+## heatIm.c
+## makefile
+### Instrucciones:
