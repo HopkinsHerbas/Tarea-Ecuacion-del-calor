@@ -11,9 +11,9 @@ SumarVectores() #Suma de vectores.
 ```
 ## tools.h :hammer:
 En este archivo se encuentran los encabezados de las funciones creadas en tools.c
-## heatExp.c :fire:
+## heatExp.c :fire: :hotsprings:	
 Este archivo contiene la programación de la solución de la ecuación de calor aplicando el método explícito de Euler, usando la función que calcula el producto Matriz-vector.
-## heatImplicito.c :fire:
+## heatImplicito.c :fire: :hotsprings:	
 En este archivo se tiene el programa principal del desarrollo de la solución de la ecuación de calor aplicando el método implícito, se hizó uso del método de Jacobi, el cual resuelve sistemas de ecuaciones lineales de manera iterativa.
 ## makefile :person_in_tuxedo:
 El programa se va a ejecutar en este archivo, aquí llamamos a los objetos para encontrar la solución de la ecuación de calor por medio de los métodos.
