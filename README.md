@@ -16,5 +16,8 @@ Este archivo contiene la programación de la solución de la ecuación de calor 
 ## heatImplicito.c
 En este archivo se tiene el programa principal del desarrollo de la solución de la ecuación de calor aplicando el método implícito, se hizó uso del método de Jacobi, el cual resuelve sistemas de ecuaciones lineales de manera iterativa.
 ## makefile
-
+El programa se va a ejecutar en este archivo, aquí llamamos a los objetos para encontrar la solución de la ecuación de calor por medio de los métodos.
 ### Instrucciones:
+1.- Descargar Archivos:
+* Damo click en la opción Code y luego pulsamos el botón "Download ZIP". Recuerden descomprimir los archivos en la carpeta o directorio donde usted trabaja.
+2.-Compilar y ejecutar en el entorno que sea de su gusto.
