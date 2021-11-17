@@ -6,16 +6,14 @@ double funcion(double x, double t);
 
 
 int main(){
-	double h = 0.01, k=0.00005; //k es deltaT y h es deltaX
+	double h = 0.01, k=0.0005; //k es deltaT y h es deltaX
 	double lambda = k/h*h;
-	double *x,*t,*inicial;
+	double *x,*t;
 	int i,j;
 	int tmax=1;
-	int n=10,m=10; // particion espacial vs temporal
+	int n=1000,m=1000; // particion espacial vs temporal
 	double tolerancia = 0.001;
 	
-
-	inicial = (double *) malloc(n * sizeof(double));
 	
 	
 	//Vector de posición x (discretización espacial)
@@ -78,27 +76,12 @@ int main(){
 		}
 	}
 		
-	for (i=0; i<n; i++){
-		inicial[i] = 0.5;
-	}
-	
-	//for (i=1; i<n-1; 1++){
-	//	m_result[i][0]=0;
-	//	m_result[i][n]=0;
-	//}
-	
-	
 
 
-	
-	//double *suma;
-	//suma=(double *) malloc(n * sizeof(double));
 	for (i=0; i<m-1; i++){
-		//suma=SumarVectores(n,m_result[i],matrixq[i+1]);
-		//printf("%f",suma[i]);
-		//printf("\n");
-		m_result[i+1]=MetodoJacobi(n,matrix,SumarVectores(n,m_result[i],matrixq[i+1]),inicial,tolerancia,20);
-		//free(suma);
+	
+		m_result[i+1]=MetodoJacobi(n,matrix,SumarVectores(n,m_result[i],matrixq[i+1]),tolerancia,20);
+
 	}
 	
 	
