@@ -1,24 +1,26 @@
 #include "tools.h"
 
-
+// GeneraMatriz crea un "arreglo rectangular" (con dimensión) fil*col en la memoria con entradas Null. Se llenará de acuerdo a los datos que el usuario necesite.
 double **GeneraMatriz(int fil, int col){
 	int i;
 	double **arreglo=NULL;
 	arreglo = (double**)malloc(fil*sizeof(double*));
 	for (i=0; i<fil; i++){
-		arreglo[i] = (double*)malloc(col*sizeof(double));
+		arreglo[i] = (double*)malloc(col*sizeof(double)); //llenando filas con Null col veces
 		if(arreglo[i] == NULL){
 			perror("ERROR. There is not enough memory");
 			exit(EXIT_FAILURE);
 		}
 	}
 	
-	return arreglo;
+	return arreglo; // regresa la matriz con entradas Null
 }
 
 
+
+// Método de Jocobi para resolver sistemas lineales de ecuaciones. Se programó de acuerdo al algoritmo clásico que aparece en textos e internet.
 double *MetodoJacobi(int n, double **A, double *b, double tolerancia, int niteraciones){
-	
+	// aquí xi es la solución inicial y xk es la solución aproximada actualizada.
 	int i, j, k;
 	double *xk=NULL;  //Nuevo Vector a formar 
 	xk = (double *) malloc(n * sizeof(double));
@@ -54,18 +56,20 @@ double *MetodoJacobi(int n, double **A, double *b, double tolerancia, int nitera
 		for(i=0;i<n;i++){
 			xk[i]=xi[i]/A[i][i];
 		}
+		
+		// corte con límite de tolerancia
 		diferencia = xk[k]-xi[k];
 		error = error + diferencia*diferencia;
 		if (error < tolerancia){
 			break;
 			}
 	}
-	free(xi);
-	return xk;
+	free(xi); // liberamos memoria
+	return xk; // regresa solución aproximada del sistema "la mejor"
 }
 
 
-
+// SumaVectores suma vectores de la misma dimensión (entrada a entrada)
 double *SumarVectores(int n, double *vector1, double *vector2){
 	int i;
 	double *resultado=NULL;
@@ -79,5 +83,5 @@ double *SumarVectores(int n, double *vector1, double *vector2){
 		resultado[i]=vector1[i]+vector2[i];
 	}
 	
-	return resultado;
+	return resultado; // regresa el vector resultado de la suma
 }
