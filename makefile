@@ -12,13 +12,13 @@ BIN3 = debug
 all: $(BIN1)
 
 heatEx: $(OBJECTS1)
-	gcc -o $(BIN1) $(FLAGS3) $(OBJECTS1) -lm   #Habia error en el linking por no conseguir libreria matematica
+	gcc -o $(BIN1) $(FLAGS3) $(OBJECTS1) -lm   
 
 heatIm: $(OBJECTS2)
-	gcc -o $(BIN2) $(FLAGS3) $(OBJECTS2) -lm   #Habia error en el linking por no conseguir libreria matematica
+	gcc -o $(BIN2) $(FLAGS3) $(OBJECTS2) -lm   
 	
 debug: $(OBJECTS1)
-	gcc -g -o $(BIN3) $(FLAGS0) $(OBJECTS1) -lm   #Habia error en el linking por no conseguir libreria matematica
+	gcc -g -o $(BIN3) $(FLAGS0) $(OBJECTS1) -lm  
 
 #### falto la regla de clean
 clean:
