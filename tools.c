@@ -4,9 +4,9 @@
 double **GeneraMatriz(int fil, int col){
 	int i;
 	double **arreglo=NULL;
-	arreglo = (double * *)malloc(fil * sizeof(double*));
+	arreglo = (double**)malloc(fil*sizeof(double*));
 	for (i=0; i<fil; i++){
-		arreglo[i] = (double *) malloc(col*sizeof(double) );
+		arreglo[i] = (double*)malloc(col*sizeof(double));
 		if(arreglo[i] == NULL){
 			perror("ERROR. There is not enough memory");
 			exit(EXIT_FAILURE);
@@ -15,6 +15,7 @@ double **GeneraMatriz(int fil, int col){
 	
 	return arreglo;
 }
+
 
 double *MetodoJacobi(int n, double **A, double *b, double tolerancia, int niteraciones){
 	
@@ -32,13 +33,13 @@ double *MetodoJacobi(int n, double **A, double *b, double tolerancia, int nitera
 		exit(EXIT_FAILURE);
 	}
 	
-	double error, diferencia;
+	double error=0, diferencia;
 	for(i=0;i<n;i++){
 		xk[i]=0;
 	}
 	for (k=0;k< niteraciones;k++){
 		for (i = 0; i < n; i++){
-			diferencia;
+			
 			
 			xi[i] = b[i];
 			for (j = 0; j < n; j++){
@@ -46,13 +47,6 @@ double *MetodoJacobi(int n, double **A, double *b, double tolerancia, int nitera
 					xi[i]=xi[i]-A[i][j]*xk[j];
 				}
 			}
-			//suma = suma + A[i][i]*xi[i];
-			//xk[i] = suma/A[i][i];
-			//diferencia = xk[i]-xi[i];
-			//
-			//else{
-			//	xi[i] = xk[i];
-			//}
 			
 		
 		}
@@ -66,37 +60,13 @@ double *MetodoJacobi(int n, double **A, double *b, double tolerancia, int nitera
 			break;
 			}
 	}
+	free(xi);
 	return xk;
 }
 
-double *ProductoMatrizVector(int n, double **mat, double *arr){
-	
-	int i, k;
-	double *resu=NULL;
-	resu = (double *) malloc(n * sizeof(double));
-	if (resu==NULL){
-		perror("ERROR. There is not enough memory");
-		exit(EXIT_FAILURE);
-	}
-	
-	for(i=0;i<n;i++){
-		
-		double sum = 0;
-		
-		for(k=0;k<n;k++){
-			sum+=mat[i][k]*arr[k];	
-		}
-		
-		resu[i]=sum;
-	}
-	
-	return resu;
-
-}
 
 
 double *SumarVectores(int n, double *vector1, double *vector2){
-	
 	int i;
 	double *resultado=NULL;
 	resultado = (double *) malloc(n * sizeof(double));
@@ -110,5 +80,4 @@ double *SumarVectores(int n, double *vector1, double *vector2){
 	}
 	
 	return resultado;
-
 }
