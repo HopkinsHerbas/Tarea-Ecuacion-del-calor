@@ -14,8 +14,6 @@ int main(){
 	double h = 0.01, k=0.01; //k es deltaT y h es deltaX
 	double lambda = k/h*h;
 	//*************************************************************************************************************
-	//h=1/n;  // tamaño de paso de discretización espacial
-	//k=1/m; // tamaño de paso de discretización temporal
 	
 	//Vector de posición x (discretización espacial)
 	x = (double *) malloc(n* sizeof(double) );
