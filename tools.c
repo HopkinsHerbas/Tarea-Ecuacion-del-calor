@@ -16,41 +16,56 @@ double **GeneraMatriz(int fil, int col){
 	return arreglo;
 }
 
-double *MetodoJacobi(int n, double **A, double *b, double *xi, double tolerancia, int niteraciones){
+double *MetodoJacobi(int n, double **A, double *b, double tolerancia, int niteraciones){
 	
-	int i, j, k = 0;
+	int i, j, k;
 	double *xk=NULL;  //Nuevo Vector a formar 
 	xk = (double *) malloc(n * sizeof(double));
 	if (xk==NULL){
 		perror("ERROR. There is not enough memory");
 		exit(EXIT_FAILURE);
 	}
-	
-	double error;
-
-	while (k <= niteraciones,k++){
-		for (i = 0; i < n; i++){
-			double suma, diferencia;
-			
-			suma = b[i];
-			for (j = 0; j < n; j++){
-				suma = suma - A[i][j]*xi[j];
-			}
-			suma = suma + A[i][i]*xi[i];
-			xk[i] = suma/A[i][i];
-			diferencia = xk[i]-xi[i-1];
-			error = error + diferencia*diferencia;
-			if (error < tolerancia){
-				break;
-			}
-			else{
-				xi[i] = xk[i];
-			}
-		}
-			
+	double *xi=NULL;
+	xi = (double *) malloc(n * sizeof(double));
+	if (xi==NULL){
+		perror("ERROR. There is not enough memory");
+		exit(EXIT_FAILURE);
 	}
-
-    //free(xk);
+	
+	double error, diferencia;
+	for(i=0;i<n;i++){
+		xk[i]=0;
+	}
+	for (k=0;k< niteraciones;k++){
+		for (i = 0; i < n; i++){
+			diferencia;
+			
+			xi[i] = b[i];
+			for (j = 0; j < n; j++){
+				if(i!=j){
+					xi[i]=xi[i]-A[i][j]*xk[j];
+				}
+			}
+			//suma = suma + A[i][i]*xi[i];
+			//xk[i] = suma/A[i][i];
+			//diferencia = xk[i]-xi[i];
+			//
+			//else{
+			//	xi[i] = xk[i];
+			//}
+			
+		
+		}
+		
+		for(i=0;i<n;i++){
+			xk[i]=xi[i]/A[i][i];
+		}
+		diferencia = xk[k]-xi[k];
+		error = error + diferencia*diferencia;
+		if (error < tolerancia){
+			break;
+			}
+	}
 	return xk;
 }
 
