@@ -6,7 +6,7 @@ double funcion(double x, double t);
 
 
 int main(){
-	double h = 0.01, k=0.0005; //k es deltaT y h es deltaX
+	double h = 0.01, k=0.00005; //k es deltaT y h es deltaX
 	double lambda = k/h*h;
 	double *x,*t,*inicial;
 	int i,j;
@@ -25,7 +25,7 @@ int main(){
 	x[n-1] = 1;
 	for( i = 1; i < n-1; i++ ){
       	x[i] = x[i-1] + h ;
-		printf("%f",x[i]);
+		//printf("%f",x[i]);
 	}
 
 	//Vector de tiempo t  (discretización temporal)
@@ -35,7 +35,7 @@ int main(){
 	t[m-1] = tmax;
 	for( i = 1; i < m-1; i++ ) {
       	t[i] = t[i-1] + k ; 
-		printf("%f",t[i]);
+		//printf("%f",t[i]);
 	}
 	
 	//Generando la matriz de coeficientes (1,...,n/1,....,n)
@@ -91,12 +91,14 @@ int main(){
 
 
 	
-	double *suma;
-	suma=(double *) malloc(n * sizeof(double));
+	//double *suma;
+	//suma=(double *) malloc(n * sizeof(double));
 	for (i=0; i<m-1; i++){
-		suma=SumarVectores(n,m_result[i],matrixq[i+1]);
-		m_result[i+1]=MetodoJacobi(n,matrix,suma,inicial,tolerancia,20);
-		free(suma);
+		//suma=SumarVectores(n,m_result[i],matrixq[i+1]);
+		//printf("%f",suma[i]);
+		//printf("\n");
+		m_result[i+1]=MetodoJacobi(n,matrix,SumarVectores(n,m_result[i],matrixq[i+1]),inicial,tolerancia,20);
+		//free(suma);
 	}
 	
 	
