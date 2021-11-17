@@ -23,3 +23,4 @@ debug: $(OBJECTS1)
 #### falto la regla de clean
 clean:
 	rm -f *.o $(BIN1) $(BIN2) $(BIN3)
+### no sé q escribir xdn't
