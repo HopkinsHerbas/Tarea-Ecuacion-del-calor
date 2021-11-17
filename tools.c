@@ -36,25 +36,22 @@ double *MetodoJacobi(int n, double **A, double *b, double *xi, double tolerancia
 			for (j = 0; j < n; j++){
 				suma = suma - A[i][j]*xi[j];
 			}
-			
 			suma = suma + A[i][i]*xi[i];
 			xk[i] = suma/A[i][i];
-			diferencia = xk[i] - xi[i];
+			diferencia = xk[i]-xi[i-1];
 			error = error + diferencia*diferencia;
+			if (error < tolerancia){
+				break;
+			}
+			else{
+				xi[i] = xk[i];
+			}
 		}
-		
-		if (error < tolerancia){
-			break;
 			
-		}
+	}
 
-		else{
-			xi[i] = xk[i];
-			}	
-		}
-
-    free(xk);
-	return xi;
+    //free(xk);
+	return xk;
 }
 
 double *ProductoMatrizVector(int n, double **mat, double *arr){
